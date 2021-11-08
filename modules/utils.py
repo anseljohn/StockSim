@@ -1,5 +1,5 @@
 def pmoney(money):
-    return "$" + format(money, ",.2f")
+    return "$" + format(round(money, 2), ",.2f")
 
 def snum(num):
     return str(num)

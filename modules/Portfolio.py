@@ -22,14 +22,14 @@ class Portfolio:
         for ticker in self.stocks:
             profits += self.stocks.get(ticker).profit()
 
-        return round(profits, 2)
+        return profits
 
     def value_owned(self):
         val_owned = 0
 
         for ticker in self.stocks:
             val_owned += self.stocks.get(ticker).total()
-        return round(val_owned, 2)
+        return val_owned
 
     def print_value_owned(self):
         return self.user + "'s owned value: $" + format(self.value_owned(), '.2f')

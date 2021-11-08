@@ -18,4 +18,4 @@ class Stock:
         return self.current() * self.count
 
     def __str__(self):
-        return "(" + snum(self.count) + ") " + self.ticker + " @ " + pmoney(self.initPrice) + " : " + pmoney(self.total()) + " value"
+        return "(" + snum(self.count) + ") " + self.ticker + " @ " + pmoney(self.initPrice) + " : " + pmoney(self.total()) + " value | Profit: " + pmoney(self.profit())
