@@ -1,10 +1,7 @@
 from Stock import Stock
+from Portfolio import Portfolio
 
 if __name__ == "__main__":
-    random = Stock("AAPL")
-    print(random.profit())
-    print(random.current())
-    print(random.ticker)
-
-    while True:
-        print("\r", random.current(), end="")
+    me = Portfolio("anseljohn", 2500)
+    me.buy_stock("AAPL", 10)
+    print(me.value_owned())

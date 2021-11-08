@@ -1,11 +1,16 @@
 import yfinance as yf
+from Stock import Stock
 
 class Portfolio:
-    def __init__(self):
+    def __init__(self, user, init_balance):
+        self.user = user
         self.stocks = {}
+        self.balance = init_balance
 
-    def add_stock(self, stock):
-        self.stocks.update({stock.ticker: stock})
+    def buy_stock(self, ticker, count):
+        to_add = Stock(ticker, count)
+        self.balance -= to_add.total()
+        self.stocks.update({ticker:to_add})
 
     def stock_profit(self, ticker):
         return self.stocks.get(ticker).profit()
@@ -22,7 +27,7 @@ class Portfolio:
         val_owned = 0
 
         for ticker in self.stocks:
-            val_owned += self.stocks.get(ticker).current()
+            val_owned += self.stocks.get(ticker).total()
 
-        return val_owned
+        return self.user + "'s owned value: " + str(val_owned)
 
